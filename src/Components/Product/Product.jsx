@@ -1,7 +1,7 @@
 import React from "react";
 import { allProducts } from "../../AllProducts";
 import { Main } from "../Home/Styled-Home";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -22,8 +22,8 @@ export default function Product() {
   let [state, setState] = React.useState("Add to Cart");
   let [count, setCount] = React.useState(1);
   let [image, setImage] = React.useState("");
-  // let cart = useSelector((state) => state.cart);
-  // let dispatch = useDispatch();
+  let cart = useSelector((state) => state.cart);
+  let dispatch = useDispatch();
   console.log(id);
   for (i = 0; i < allProducts.length; i++) {
     if (allProducts[i].id === +id) {  
@@ -32,10 +32,10 @@ export default function Product() {
   }
   if (cart.includes(+id)) state = "Already in the Cart";
 
-  const clcHandler = (e) => {
-    dispatch(addToCart(e.target.id));
-    if (state === "Add to Cart") setState("Already in the Cart");
-  };
+  // const clcHandler = (e) => {
+  //   dispatch(addToCart(e.target.id));
+  //   if (state === "Add to Cart") setState("Already in the Cart");
+  // };
 
   console.log(allProducts[i], i);
   let { img, name, sprice, aprice, rating, reviews, details } =
@@ -50,9 +50,6 @@ export default function Product() {
         <article id="product-article-1"></article>
         <article id="product-article-2">
           <img src={image} alt="" id="main-img" />
-          <button id={+id} onClick={clcHandler}>
-            <FaShoppingCart /> {state}
-          </button>
         </article>
         <article id="product-article-3">
           <div id="price">

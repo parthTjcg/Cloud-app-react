@@ -4,6 +4,7 @@ import { allProducts } from "../../AllProducts";
 import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import SlliderView from "./SliderComponent/SliderComponent";
+import Footer from "../Footer/Footer"
 
 import "./Home.css";
 
