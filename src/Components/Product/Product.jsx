@@ -2,7 +2,7 @@ import React from "react";
 import { allProducts } from "../../AllProducts";
 import { Main } from "../Home/Styled-Home";
 import { useParams } from "react-router-dom";
-// import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { FaStar } from "react-icons/fa";
